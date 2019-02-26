@@ -35,6 +35,13 @@ namespace MiniProjekti2.Controllers
             return Ok(taskInfo);
         }
 
+        public IEnumerable<TaskInfo> Get()
+        {
+            List<TaskInfo> allTasks = new List<TaskInfo>();
+            allTasks = db.TaskInfoes.ToList();
+            return allTasks;
+        }
+
         // PUT: api/Task/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTaskInfo(int id, TaskInfo taskInfo)

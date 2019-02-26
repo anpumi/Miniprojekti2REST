@@ -29,11 +29,18 @@ namespace MiniProjekti2.Controllers
             return db.UserInfoes;
         }
 
+        //public IEnumerable<TaskInfo> Get()
+        //{
+        //    List<TaskInfo> allTasks = new List<TaskInfo>();
+        //    allTasks = db.TaskInfoes.ToList();
+        //    return allTasks;
+        //}
+
         // GET: api/User/5
-        [ResponseType(typeof(UserInfo))]
+        [ResponseType(typeof(TaskInfo))]
         public IHttpActionResult GetUserInfo(int id)
         {
-            UserInfo userInfo = db.UserInfoes.Find(id);
+            TaskInfo userInfo = db.TaskInfoes.Find(id);
             if (userInfo == null)
             {
                 return NotFound();
