@@ -16,11 +16,24 @@ namespace MiniProjekti2.Controllers
     {
         private ToDoDB db = new ToDoDB();
 
+
         // GET: api/Task
-        public IQueryable<TaskInfo> GetTaskInfoes()
-        {
-            return db.TaskInfoes;
-        }
+        //public IEnumerable<TaskInfo> Get()
+        //{
+        //    List<TaskInfo> kaikki = new List<TaskInfo>();
+        //    kaikki = db.TaskInfoes.ToList();
+        //    return kaikki;
+
+        //    //  Voi tehdä myös. Muista public...< > pitää olla <Tuote>
+        //    //  return db.Tuote.ToList();
+        //}
+
+
+       // GET: api/Task
+       public IQueryable<TaskInfo> GetTaskInfoes()
+       {
+           return db.TaskInfoes;
+       }
 
         // GET: api/Task/5
         [ResponseType(typeof(TaskInfo))]
@@ -34,13 +47,7 @@ namespace MiniProjekti2.Controllers
 
             return Ok(taskInfo);
         }
-
-        public IEnumerable<TaskInfo> Get()
-        {
-            List<TaskInfo> allTasks = new List<TaskInfo>();
-            allTasks = db.TaskInfoes.ToList();
-            return allTasks;
-        }
+        
 
         // PUT: api/Task/5
         [ResponseType(typeof(void))]

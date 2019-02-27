@@ -9,6 +9,7 @@ namespace MiniProjekti2.Models
     [Table("TaskInfo")]
     public partial class TaskInfo
     {
+        
         public int PersonID { get; set; }
 
         [Key]

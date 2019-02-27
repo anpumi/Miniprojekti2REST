@@ -15,6 +15,9 @@ namespace MiniProjekti2.Models
             TaskInfoes = new HashSet<TaskInfo>();
         }
 
+        [Key]
+        public int PersonID { get; set; }
+
         [StringLength(30)]
         public string FirstName { get; set; }
 
@@ -24,10 +27,6 @@ namespace MiniProjekti2.Models
         [Required]
         [StringLength(15)]
         public string NickName { get; set; }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int PersonID { get; set; }
 
         [StringLength(80)]
         public string Email { get; set; }
@@ -40,5 +39,7 @@ namespace MiniProjekti2.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaskInfo> TaskInfoes { get; set; }
+        
+
     }
 }

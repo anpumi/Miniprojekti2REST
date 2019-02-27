@@ -16,35 +16,30 @@ namespace MiniProjekti2.Controllers
 
     public class UserController : ApiController
     {
-        public ActionResult Index()
-        {
-            return Index();
-        }     
+      
         
         private ToDoDB db = new ToDoDB();
 
         // GET: api/User
+       
+
         public IQueryable<UserInfo> GetUserInfoes()
         {
+
             return db.UserInfoes;
         }
 
-        //public IEnumerable<TaskInfo> Get()
-        //{
-        //    List<TaskInfo> allTasks = new List<TaskInfo>();
-        //    allTasks = db.TaskInfoes.ToList();
-        //    return allTasks;
-        //}
 
         // GET: api/User/5
-        [ResponseType(typeof(TaskInfo))]
-        public IHttpActionResult GetUserInfo(int id)
+        [ResponseType(typeof(UserInfo))]
+        public IHttpActionResult Get(int id)
         {
-            TaskInfo userInfo = db.TaskInfoes.Find(id);
+            UserInfo userInfo = db.UserInfoes.Find(id);
             if (userInfo == null)
             {
                 return NotFound();
             }
+            //var response = new{ FirstName=userInfo.FirstName, UserInfo=userInfo.TaskInfoes.ToList()};
 
             return Ok(userInfo);
         }
